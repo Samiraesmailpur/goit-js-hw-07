@@ -5,6 +5,11 @@ const gallery = document.querySelector('.gallery');
 
 gallery.insertAdjacentHTML('beforeend', createGallery(galleryItems));
 
+new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
 gallery.addEventListener('click', onGalleryClick);
 
 function createGallery(galleryItems) {
@@ -29,9 +34,4 @@ function onGalleryClick(e) {
   if (!e.target.classList.contains('gallery__image')) {
     return;
   }
-  new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-  console.log();
 }
